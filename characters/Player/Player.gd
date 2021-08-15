@@ -26,6 +26,8 @@ func _process(delta):
 		
 		ATTACK:
 			attack_state(delta)
+			
+	player_actions()
 	
 func move_state(delta):
 	
@@ -48,9 +50,6 @@ func move_state(delta):
 		speed_vector = Vector2.ZERO
 	
 	move_and_collide(speed_vector * delta)
-	
-	if Input.is_action_just_pressed("attack"):
-		curr_state = ATTACK
 
 func attack_state(delta):
 	speed_vector = Vector2.ZERO
@@ -58,3 +57,11 @@ func attack_state(delta):
 	
 func end_attack_state():
 	curr_state = MOVE
+	
+func player_actions():	
+	if Input.is_action_just_pressed("attack"):
+		curr_state = ATTACK
+	elif Input.is_action_just_pressed("interact"):
+		var npc = get_tree().get_nodes_in_group('interactable_npc')
+		if(npc.size() > 0):
+			npc[0].interact_with_player(self.position.x, self.position.y)

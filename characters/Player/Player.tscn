@@ -743,5 +743,6 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 rotation = 1.11701
 shape = SubResource( 36 )
+disabled = true
 
 [editable path="HitboxPivot/SwordHitbox"]
