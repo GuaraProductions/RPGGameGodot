@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var speed_vector = Vector2.ZERO 
 
-export var MAX_SPEED = 200
+export var MAX_SPEED = 150
 
 enum {
 	MOVE,
