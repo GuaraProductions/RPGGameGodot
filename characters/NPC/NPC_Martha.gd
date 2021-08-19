@@ -6,14 +6,6 @@ onready var speech_bubble = $"Speech Bubble"
 
 func _ready():
 	speech_bubble.visible = false
-
-func _on_InteractionZone_body_entered(_body):
-	self.add_to_group(groupName)
-	speech_bubble.visible = true
-
-func _on_InteractionZone_body_exited(_body):
-	self.remove_from_group(groupName)
-	speech_bubble.visible = false
 	
 func interact_with_player(player_x,player_y):
 	face_the_player(player_x,player_y)
@@ -34,3 +26,13 @@ func face_the_player(player_x,player_y):
 	else:
 		sprites.set_frame(3)
 	
+
+
+func _on_InteractionZone_area_entered(area):
+	self.add_to_group(groupName)
+	speech_bubble.visible = true
+
+
+func _on_InteractionZone_area_exited(area):
+	self.remove_from_group(groupName)
+	speech_bubble.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/RightStrike1.png" type="Texture" id=2]
@@ -507,6 +507,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ "down" ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractionZone:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -180.0 ]
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.3
@@ -534,6 +546,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "left" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractionZone:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -90.0 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -563,6 +587,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ "right" ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractionZone:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.3
@@ -590,6 +626,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "up" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractionZone:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=15]
@@ -691,8 +739,11 @@ graph_offset = Vector2( -16, 71 )
 [sub_resource type="RectangleShape2D" id=36]
 extents = Vector2( 6.388, 11.519 )
 
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 11.75, 5 )
+
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 18
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -729,7 +780,6 @@ parameters/Idle/blend_position = Vector2( -0.0294574, 0.0258621 )
 parameters/Walking/blend_position = Vector2( -0.245581, 0.62931 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-rotation = 3.62854
 __meta__ = {
 "_gizmo_extents_": 8.0
 }
@@ -741,8 +791,16 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
-rotation = 1.11701
+rotation = 1.5708
 shape = SubResource( 36 )
 disabled = true
+
+[node name="InteractionZone" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="InteractionRect" type="CollisionShape2D" parent="InteractionZone"]
+position = Vector2( -0.25, -14.5 )
+shape = SubResource( 37 )
 
 [editable path="HitboxPivot/SwordHitbox"]
