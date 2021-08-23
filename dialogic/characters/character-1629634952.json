@@ -1,0 +1,20 @@
+{
+	"color": "#fffffb00",
+	"description": "Your childhood friend",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1629634952.json",
+	"mirror_portraits": false,
+	"name": "Martha",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -275,
+	"offset_y": -15,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/Textures/Player/Martha/Blonde/Down2.png"
+		}
+	],
+	"scale": 1000
+}
