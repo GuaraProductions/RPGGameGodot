@@ -10,12 +10,14 @@ enum {
 }
 
 var curr_state;
+var stats = PlayerStats
 
 onready var animation            = $AnimationPlayer
 onready var all_animations       = $AnimationTree
 onready var animationState       = all_animations.get("parameters/playback")
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	curr_state = MOVE
 
 func _process(delta):

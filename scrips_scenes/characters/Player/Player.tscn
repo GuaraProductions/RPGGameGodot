@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=2]
 
-[ext_resource path="res://characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://scrips_scenes/characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/RightStrike1.png" type="Texture" id=2]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Left1.png" type="Texture" id=3]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Down1.png" type="Texture" id=4]
@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/UpStrike2.png" type="Texture" id=20]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/LeftStrike2.png" type="Texture" id=21]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Right3.png" type="Texture" id=22]
-[ext_resource path="res://utils/hit_system/Hitbox.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scrips_scenes/utils/hit_system/Hitbox.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/LeftStrike3.png" type="Texture" id=24]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Right2.png" type="Texture" id=25]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Right1.png" type="Texture" id=26]
@@ -740,7 +740,7 @@ graph_offset = Vector2( -16, 71 )
 extents = Vector2( 6.388, 11.519 )
 
 [sub_resource type="RectangleShape2D" id=37]
-extents = Vector2( 11.75, 5 )
+extents = Vector2( 9, 5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2

@@ -45,12 +45,13 @@ _global_script_class_icons={
 [application]
 
 config/name="RPGgame"
-run/main_scene="res://levels/World.tscn"
+run/main_scene="res://scrips_scenes/levels/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
+PlayerStats="*res://scrips_scenes/characters/Player/PlayerStats.tscn"
 
 [display]
 
