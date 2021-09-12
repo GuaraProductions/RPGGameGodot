@@ -32,6 +32,7 @@ animations = [ {
 } ]
 
 [node name="NPC_Martha" type="StaticBody2D"]
+collision_layer = 17
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

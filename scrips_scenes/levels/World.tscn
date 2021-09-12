@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilesets/basictiles.tres" type="TileSet" id=1]
 [ext_resource path="res://scrips_scenes/characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scrips_scenes/characters/Player/Camera2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scrips_scenes/characters/NPC/NPC_Martha.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scrips_scenes/characters/Player/PlayerUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scrips_scenes/magic/Fireball.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 125.017, 627.202 )
@@ -39,6 +40,7 @@ tile_data = PoolIntArray( -1114106, 6, 0, -1114105, 6, 0, -1114098, 6, 0, -11140
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 576.943, -261.759 )
+fireball = ExtResource( 6 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")

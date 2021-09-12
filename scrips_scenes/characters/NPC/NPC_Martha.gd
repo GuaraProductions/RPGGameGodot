@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-var groupName = 'interactable_npc'
 onready var sprites = $AnimatedSprite
 onready var speech_bubble = $"Speech Bubble"
 
@@ -10,7 +9,7 @@ func _ready():
 	_speech_bubble_off()
 	in_conversation = false
 	
-func interact_with_player(player_x,player_y):
+func interact(player_x,player_y):
 	if !in_conversation:
 		in_conversation = true
 		face_the_player(player_x,player_y)
@@ -35,16 +34,11 @@ func face_the_player(player_x,player_y):
 			
 	else:
 		sprites.set_frame(3)
-	
-
 
 func _on_InteractionZone_area_entered(area):
-	self.add_to_group(groupName)
 	_speech_bubble_on()
 
-
 func _on_InteractionZone_area_exited(area):
-	self.remove_from_group(groupName)
 	_speech_bubble_off()
 
 func _speech_bubble_off():

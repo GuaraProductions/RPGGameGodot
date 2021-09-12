@@ -1,6 +1,10 @@
 extends KinematicBody2D
 
-var speed_vector = Vector2.ZERO 
+export(PackedScene) var fireball
+
+var speed_vector      = Vector2.ZERO 
+var prev_speed        = Vector2(0,-150) 
+var interactable_body = null
 
 export var MAX_SPEED = 150
 
@@ -15,6 +19,7 @@ var stats = PlayerStats
 onready var animation            = $AnimationPlayer
 onready var all_animations       = $AnimationTree
 onready var animationState       = all_animations.get("parameters/playback")
+onready var interactionRect      = $"InteractionZone/InteractionRect"
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -45,7 +50,8 @@ func move_state(delta):
 		all_animations.set("parameters/Walking/blend_position", input_vector)
 		all_animations.set("parameters/Attacking/blend_position", input_vector)
 		animationState.travel("Walking")
-		speed_vector = input_vector * MAX_SPEED;
+		speed_vector = input_vector * MAX_SPEED
+		prev_speed = speed_vector
 	
 	else:
 		animationState.travel("Idle")
@@ -60,10 +66,28 @@ func attack_state(delta):
 func end_attack_state():
 	curr_state = MOVE
 	
+func create_fireball(pos):
+	
+	if stats.mana < 30:
+		return 
+	
+	stats.reduce_mana(30)
+	var projectile = fireball.instance()
+	projectile.init(prev_speed,pos)
+	get_tree().get_root().add_child(projectile)
+	
+	
 func player_actions():	
 	if Input.is_action_just_pressed("attack"):
+		create_fireball(interactionRect.global_position)
 		curr_state = ATTACK
 	elif Input.is_action_just_pressed("interact"):
-		var npc = get_tree().get_nodes_in_group('interactable_npc')
-		if(npc.size() > 0):
-			npc[0].interact_with_player(self.position.x, self.position.y)
+		if(interactable_body != null):
+			interactable_body.interact(self.position.x, self.position.y)
+
+
+func _on_InteractionZone_body_entered(body):
+	interactable_body = body
+
+func _on_InteractionZone_body_exited(_body):
+	interactable_body = null

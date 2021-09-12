@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scrips_scenes/characters/Player/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/Fonts/UIfont.tres" type="DynamicFont" id=2]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.133333, 0.121569, 0.14902, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 560.0
+margin_top = 259.0
+margin_right = 719.0
+margin_bottom = 461.0
+custom_constants/separation = 26
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 159.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 159.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 159.0
+margin_bottom = 202.0
+custom_fonts/font = ExtResource( 2 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

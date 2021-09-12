@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Textures/Enemy/Bat2.png" type="Texture" id=1]
+[ext_resource path="res://assets/Textures/Enemy/Bat1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Textures/Enemy/Bat4.png" type="Texture" id=3]
+[ext_resource path="res://assets/Textures/Enemy/Bat3.png" type="Texture" id=4]
+[ext_resource path="res://scrips_scenes/enemies/Bat.gd" type="Script" id=5]
+[ext_resource path="res://scrips_scenes/utils/hit_system/Hurtbox.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.1815, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.7406, 10 )
+
+[node name="Bat" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.420448 )
+shape = SubResource( 2 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -0.115883, 0.556812 )
+shape = SubResource( 3 )
+
+[editable path="Hurtbox"]
