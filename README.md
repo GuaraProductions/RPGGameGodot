@@ -16,8 +16,7 @@ Objectives:
 - [x] Camera Customization
 - [x] Invisible barricades
 - [x] Action Based System
-- [x] Weapon Hit Detection
-- [x] Detection Tweaks
+- [x] Collision/Detection System
 - [x] NPCs
 - [x] NPC Interaction
 - [x] Dialog Part
