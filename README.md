@@ -25,20 +25,20 @@ Objectives:
 - [x] Stats bars
 - [x] Pause Menu
 - [x] Projectiles
-- [] Enemy 
-- [] Game Over
-- [] Quests
-- [] Custom Cursor
-- [] Experience System
-- [] Inventory
-- [] Saving and Loading inventory
-- [] File encryption
-- [] Currency
-- [] Stat display
-- [] Add Equipment
-- [] Equipping Items/Unequipping Items
-- [] More Saving and Loading
-- [] Audio Settings
-- [] Display Settings
-- [] Main Menu
+- [ ] Enemy 
+- [ ] Game Over
+- [ ] Quests
+- [ ] Custom Cursor
+- [ ] Experience System
+- [ ] Inventory
+- [ ] Saving and Loading inventory
+- [ ] File encryption
+- [ ] Currency
+- [ ] Stat display
+- [ ] Add Equipment
+- [ ] Equipping Items/Unequipping Items
+- [ ] More Saving and Loading
+- [ ] Audio Settings
+- [ ] Display Settings
+- [ ] Main Menu
 - [] Audio
