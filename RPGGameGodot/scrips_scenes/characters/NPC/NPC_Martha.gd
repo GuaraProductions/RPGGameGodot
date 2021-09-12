@@ -3,6 +3,9 @@ extends StaticBody2D
 onready var sprites = $AnimatedSprite
 onready var speech_bubble = $"Speech Bubble"
 
+var conversations = ['martha-first-conversation']
+var conversation_index = 0
+
 var in_conversation : bool
 
 func _ready():
@@ -10,14 +13,16 @@ func _ready():
 	in_conversation = false
 	
 func interact(player_x,player_y):
-	if !in_conversation:
-		in_conversation = true
-		face_the_player(player_x,player_y)
-		var new_dialog = Dialogic.start('martha-first-conversation')
-		add_child(new_dialog)
-		new_dialog.connect("timeline_end", self, "after_dialog_end")
 	
-func after_dialog_end(timeline_name):
+	if in_conversation or conversation_index >= conversations.size():
+		return
+
+	conversation_index += 1
+	in_conversation = true
+	face_the_player(player_x,player_y)
+	return conversations[conversation_index]
+	
+func after_dialog_end():
 	in_conversation = false
 	
 func face_the_player(player_x,player_y):

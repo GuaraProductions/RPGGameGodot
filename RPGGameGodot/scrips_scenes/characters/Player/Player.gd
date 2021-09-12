@@ -11,10 +11,12 @@ export var MAX_SPEED = 150
 enum {
 	MOVE,
 	ATTACK,
+	INTERACT,
 }
 
 var curr_state;
 var stats = PlayerStats
+var dialog = Dialogic
 
 onready var animation            = $AnimationPlayer
 onready var all_animations       = $AnimationTree
@@ -33,6 +35,9 @@ func _process(delta):
 		
 		ATTACK:
 			attack_state(delta)
+			
+		INTERACT:
+			interact_state()
 			
 	player_actions()
 	
@@ -66,6 +71,13 @@ func attack_state(delta):
 func end_attack_state():
 	curr_state = MOVE
 	
+func end_interact_state(_timeline_name):
+	curr_state = MOVE
+	interactable_body.after_dialog_end()
+	
+func interact_state():
+	pass
+	
 func create_fireball(pos):
 	
 	if stats.mana < 30:
@@ -76,14 +88,20 @@ func create_fireball(pos):
 	projectile.init(prev_speed,pos)
 	get_tree().get_root().add_child(projectile)
 	
-	
 func player_actions():	
 	if Input.is_action_just_pressed("attack"):
 		create_fireball(interactionRect.global_position)
 		curr_state = ATTACK
 	elif Input.is_action_just_pressed("interact"):
 		if(interactable_body != null):
-			interactable_body.interact(self.position.x, self.position.y)
+			curr_state = INTERACT
+			var conversation_name = interactable_body.interact(self.position.x, self.position.y)
+			
+			if conversation_name != null:
+				var new_dialog = dialog.start(conversation_name, false)
+				add_child(new_dialog)
+				new_dialog.connect("timeline_end", self, "end_interact_state")
+			
 
 
 func _on_InteractionZone_body_entered(body):
