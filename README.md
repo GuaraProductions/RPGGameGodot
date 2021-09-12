@@ -41,4 +41,4 @@ Objectives:
 - [ ] Audio Settings
 - [ ] Display Settings
 - [ ] Main Menu
-- [] Audio
+- [ ] Audio
