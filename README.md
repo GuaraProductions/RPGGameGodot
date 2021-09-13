@@ -5,7 +5,7 @@ right now, in order to learn more about the Godot Engine
 
 ![screenshot](images/game_screenshot.png)
 
-Objectives:
+## Objectives:
 
 <details>
   <summary>Setup</summary>
