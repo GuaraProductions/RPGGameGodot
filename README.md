@@ -7,37 +7,90 @@ right now, in order to learn more about the Godot Engine
 
 Objectives:
 
-- [x] Setup
-- [x] Importing assets
-- [x] AutoTiles
-- [x] AutoTiles Snapping
-- [x] Player and Movement
-- [x] Animated Movement
-- [x] Camera Customization
-- [x] Invisible barricades
-- [x] Action Based System
-- [x] Collision/Detection System
-- [x] NPCs
-- [x] NPC Interaction
-- [x] Dialog Part
-- [x] Player Stats
-- [x] Stats bars
-- [x] Pause Menu
-- [x] Projectiles
-- [ ] Enemy 
-- [ ] Game Over
-- [ ] Quests
-- [ ] Custom Cursor
-- [ ] Experience System
-- [ ] Inventory
-- [ ] Saving and Loading inventory
-- [ ] File encryption
-- [ ] Currency
-- [ ] Stat display
-- [ ] Add Equipment
-- [ ] Equipping Items/Unequipping Items
-- [ ] More Saving and Loading
-- [ ] Audio Settings
-- [ ] Display Settings
-- [ ] Main Menu
-- [ ] Audio
+<details>
+  <summary>Setup</summary>
+  
+  - [x] Importing assets
+</details>
+
+<details>
+  <summary>Autotiles</summary>
+  
+  - [x] AutoTiles
+  - [x] AutoTiles Snapping
+</details>
+
+<details>
+  <summary>Player and Movement</summary>
+  
+  - [x] Player and Movement
+  - [x] Animated Movement
+  - [x] Camera Customization
+</details>
+
+<details>
+  <summary>Barricades and collision</summary>
+  
+  - [x] Invisible barricades
+  - [x] Collision/Detection System
+</details>
+
+<details>
+  <summary>NPC and Interaction</summary>
+  
+  - [x] NPCs
+  - [x] NPC Interaction
+  - [x] Dialog (Using Dialogic plugin)
+  - [x] Action Based System
+</details>
+
+<details>
+  <summary>Stats</summary>
+  
+  - [x] Player Stats
+  - [x] Stats bars
+  - [x] Pause Menu
+  - [ ] Game Over
+</details>
+
+<details>
+  <summary>UI</summary>
+  
+  - [x] Player Stats
+  - [x] Stats bars
+  - [ ] Stat display
+  - [ ] Audio Settings
+  - [ ] Display Settings
+  - [ ] Main Menu
+  - [ ] Custom Cursor
+</details>
+
+<details>
+  <summary>Inventory</summary>
+  
+  - [ ] Inventory
+  - [ ] Saving and Loading inventory
+  - [ ] Add Equipment
+  - [ ] Equipping Items/Unequipping Items
+  - [ ] Currency
+</details>
+
+<details>
+  <summary>Saving</summary>
+  
+  - [ ] Saving and Loading
+  - [ ] File encryption
+</details>
+
+<details>
+  <summary>Gameplay</summary>
+  
+  - [ ] Quests
+  - [ ] Experience System
+</details>
+
+
+
+
+
+
