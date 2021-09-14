@@ -1,0 +1,59 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1629634952.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1629634952.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey... can I ask you something?"
+		},
+		{
+			"action": "join",
+			"character": "character-1631580386.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1631580386.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sure, what is it?"
+		},
+		{
+			"character": "character-1629634952.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Give me the suck <3"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1631580065.json",
+		"name": "martha-second-conversation"
+	}
+}

@@ -38,8 +38,9 @@ func _process(delta):
 			
 		INTERACT:
 			interact_state()
-			
-	player_actions()
+	
+	if curr_state != INTERACT:		
+		player_actions()
 	
 func move_state(delta):
 	
@@ -73,7 +74,8 @@ func end_attack_state():
 	
 func end_interact_state(_timeline_name):
 	curr_state = MOVE
-	interactable_body.after_dialog_end()
+	if interactable_body != null:
+		interactable_body.after_dialog_end()
 	
 func interact_state():
 	pass
@@ -92,15 +94,20 @@ func player_actions():
 	if Input.is_action_just_pressed("attack"):
 		create_fireball(interactionRect.global_position)
 		curr_state = ATTACK
+		
 	elif Input.is_action_just_pressed("interact"):
 		if(interactable_body != null):
 			curr_state = INTERACT
 			var conversation_name = interactable_body.interact(self.position.x, self.position.y)
+			animationState.travel("Idle")
+			speed_vector = Vector2.ZERO
 			
 			if conversation_name != null:
 				var new_dialog = dialog.start(conversation_name, false)
 				add_child(new_dialog)
 				new_dialog.connect("timeline_end", self, "end_interact_state")
+			else:
+				curr_state = MOVE
 			
 
 
@@ -108,4 +115,5 @@ func _on_InteractionZone_body_entered(body):
 	interactable_body = body
 
 func _on_InteractionZone_body_exited(_body):
+	interactable_body.after_dialog_end()
 	interactable_body = null

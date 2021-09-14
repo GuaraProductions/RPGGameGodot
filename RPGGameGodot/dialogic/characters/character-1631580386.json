@@ -1,0 +1,20 @@
+{
+	"color": "#ff00ff6a",
+	"description": "The main character of the game",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1631580386.json",
+	"mirror_portraits": false,
+	"name": "Player",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 50,
+	"offset_y": -15,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/Textures/Player/Jeremy/Green/Down2.png"
+		}
+	],
+	"scale": 1000
+}
