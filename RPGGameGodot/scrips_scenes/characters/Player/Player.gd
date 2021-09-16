@@ -22,10 +22,12 @@ onready var animation            = $AnimationPlayer
 onready var all_animations       = $AnimationTree
 onready var animationState       = all_animations.get("parameters/playback")
 onready var interactionRect      = $"InteractionZone/InteractionRect"
+onready var swordHitbox          = $"HitboxPivot/SwordHitbox"
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 	curr_state = MOVE
+	swordHitbox.knockback_vector = Vector2.ZERO
 
 func _process(delta):
 	
@@ -52,6 +54,8 @@ func move_state(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
+		swordHitbox.knockback_vector = input_vector
+		
 		all_animations.set("parameters/Idle/blend_position", input_vector)
 		all_animations.set("parameters/Walking/blend_position", input_vector)
 		all_animations.set("parameters/Attacking/blend_position", input_vector)

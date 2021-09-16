@@ -16,8 +16,6 @@ func _ready():
 	in_conversation = false
 	
 func interact(player_x,player_y):
-	print('interagiu porra')
-	print(in_conversation)
 	if in_conversation or conversation_index >= conversations.size() - 1:
 		return
 

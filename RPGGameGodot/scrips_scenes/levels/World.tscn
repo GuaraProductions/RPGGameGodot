@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilesets/basictiles.tres" type="TileSet" id=1]
 [ext_resource path="res://scrips_scenes/characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scrips_scenes/characters/NPC/NPC_Martha.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scrips_scenes/characters/Player/PlayerUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scrips_scenes/magic/Fireball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scrips_scenes/enemies/Bat.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 125.017, 627.202 )
@@ -49,5 +50,8 @@ remote_path = NodePath("../../../Camera2D")
 position = Vector2( 482, -410 )
 
 [node name="CanvasLayer" parent="YSort" instance=ExtResource( 5 )]
+
+[node name="Bat" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 725.15, -254.741 )
 
 [editable path="Camera2D"]
