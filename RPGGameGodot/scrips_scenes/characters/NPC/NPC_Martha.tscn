@@ -51,7 +51,7 @@ shape = SubResource( 2 )
 
 [node name="InteractionZone" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 32
 
 [node name="InteractionBubble" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource( 3 )

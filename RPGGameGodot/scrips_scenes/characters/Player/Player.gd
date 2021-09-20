@@ -121,3 +121,7 @@ func _on_InteractionZone_body_entered(body):
 func _on_InteractionZone_body_exited(_body):
 	interactable_body.after_dialog_end()
 	interactable_body = null
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage

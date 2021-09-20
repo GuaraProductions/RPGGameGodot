@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://scrips_scenes/characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/RightStrike1.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Right2.png" type="Texture" id=25]
 [ext_resource path="res://assets/Textures/Player/Jeremy/Green/Right1.png" type="Texture" id=26]
 [ext_resource path="res://scrips_scenes/utils/hit_system/Hurtbox.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scrips_scenes/characters/Player/SwordHitBox.gd" type="Script" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -792,17 +793,19 @@ __meta__ = {
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 23 )]
 position = Vector2( 4, 12 )
 gravity_vec = Vector2( 0, 0 )
-collision_layer = 4
+collision_layer = 16
 collision_mask = 0
+script = ExtResource( 28 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 rotation = 1.5708
+scale = Vector2( 1.2, 1.2 )
 shape = SubResource( 36 )
 disabled = true
 
 [node name="InteractionZone" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 32
+collision_mask = 32
 
 [node name="InteractionRect" type="CollisionShape2D" parent="InteractionZone"]
 position = Vector2( -0.25, -14.5 )
@@ -810,7 +813,7 @@ scale = Vector2( 0.1, 2 )
 shape = SubResource( 37 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 27 )]
-collision_mask = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0.27837, 0.397301 )
@@ -818,6 +821,7 @@ shape = SubResource( 38 )
 
 [connection signal="body_entered" from="InteractionZone" to="." method="_on_InteractionZone_body_entered"]
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_InteractionZone_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtbox"]
