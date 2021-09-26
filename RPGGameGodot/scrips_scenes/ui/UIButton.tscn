@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Fonts/UIfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scrips_scenes/ui/UIButton.gd" type="Script" id=2]
+
+[node name="Options" type="Button"]
+margin_right = 159.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+text = "Options"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

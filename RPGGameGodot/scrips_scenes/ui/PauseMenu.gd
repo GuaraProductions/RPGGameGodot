@@ -14,11 +14,10 @@ func _input(event):
 		
 		self.visible = get_tree().paused
 
+func _on_Quit_pressed():
+	get_tree().quit()
 
 func _on_Resume_pressed():
 	get_tree().paused = false
 	self.visible = false
 	player_bars.visible = true
-
-func _on_Exit_pressed():
-	get_tree().quit()

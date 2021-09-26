@@ -814,6 +814,7 @@ shape = SubResource( 37 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 27 )]
 collision_mask = 4
+invincibility_duration = 0.5
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0.27837, 0.397301 )

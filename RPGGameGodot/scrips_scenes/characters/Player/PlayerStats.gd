@@ -7,8 +7,7 @@ export var max_mana = 60        setget set_max_mana
 var mana            = max_mana  setget set_mana
 
 var attack  = 20
-var defense = 10
-var speed   = 30
+var speed   = 150
 
 var magic_damage  = 5
 var magic_defense = 5

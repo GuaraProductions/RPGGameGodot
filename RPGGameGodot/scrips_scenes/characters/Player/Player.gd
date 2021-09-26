@@ -6,8 +6,6 @@ var speed_vector      = Vector2.ZERO
 var prev_speed        = Vector2(0,-150) 
 var interactable_body = null
 
-export var MAX_SPEED = 150
-
 enum {
 	MOVE,
 	ATTACK,
@@ -18,15 +16,19 @@ var curr_state;
 var stats = PlayerStats
 var dialog = Dialogic
 
-onready var animation            = $AnimationPlayer
-onready var all_animations       = $AnimationTree
-onready var animationState       = all_animations.get("parameters/playback")
-onready var interactionRect      = $"InteractionZone/InteractionRect"
-onready var swordHitbox          = $"HitboxPivot/SwordHitbox"
+onready var animation       = $AnimationPlayer
+onready var all_animations  = $AnimationTree
+onready var animationState  = all_animations.get("parameters/playback")
+onready var interactionRect = $"InteractionZone/InteractionRect"
+onready var swordHitbox     = $"HitboxPivot/SwordHitbox"
+onready var hurtbox         = $Hurtbox
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 	curr_state = MOVE
+	
+	stats.defense = 0
+	
 	swordHitbox.knockback_vector = Vector2.ZERO
 
 func _process(delta):
@@ -60,7 +62,7 @@ func move_state(delta):
 		all_animations.set("parameters/Walking/blend_position", input_vector)
 		all_animations.set("parameters/Attacking/blend_position", input_vector)
 		animationState.travel("Walking")
-		speed_vector = input_vector * MAX_SPEED
+		speed_vector = input_vector * stats.speed
 		prev_speed = speed_vector
 	
 	else:
@@ -101,6 +103,7 @@ func player_actions():
 		
 	elif Input.is_action_just_pressed("interact"):
 		if(interactable_body != null):
+			print("cheguei aq")
 			curr_state = INTERACT
 			var conversation_name = interactable_body.interact(self.position.x, self.position.y)
 			animationState.travel("Idle")
@@ -113,15 +116,15 @@ func player_actions():
 			else:
 				curr_state = MOVE
 			
-
-
 func _on_InteractionZone_body_entered(body):
+	print("interage?")
 	interactable_body = body
 
 func _on_InteractionZone_body_exited(_body):
 	interactable_body.after_dialog_end()
 	interactable_body = null
 
-
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
+	stats.deal_damage(area.damage)
+	hurtbox.start_invincibility()
+	

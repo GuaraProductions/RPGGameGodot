@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scrips_scenes/characters/Player/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/Fonts/UIfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scrips_scenes/ui/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://scrips_scenes/ui/UIButton.tscn" type="PackedScene" id=3]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -34,31 +34,17 @@ margin_right = 719.0
 margin_bottom = 461.0
 custom_constants/separation = 26
 
-[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 159.0
-margin_bottom = 50.0
-custom_fonts/font = ExtResource( 2 )
+[node name="Resume" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
 text = "Resume"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Options" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 76.0
-margin_right = 159.0
 margin_bottom = 126.0
-custom_fonts/font = ExtResource( 2 )
-text = "Options"
 
-[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 152.0
-margin_right = 159.0
 margin_bottom = 202.0
-custom_fonts/font = ExtResource( 2 )
-text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

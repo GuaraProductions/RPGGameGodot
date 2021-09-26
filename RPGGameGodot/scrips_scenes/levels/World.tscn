@@ -49,9 +49,9 @@ remote_path = NodePath("../../../Camera2D")
 [node name="NPC_Martha" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 482, -410 )
 
-[node name="CanvasLayer" parent="YSort" instance=ExtResource( 5 )]
-
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 725.15, -254.741 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
 [editable path="Camera2D"]

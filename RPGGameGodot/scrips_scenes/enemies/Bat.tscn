@@ -16,7 +16,7 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -26,7 +26,7 @@ extents = Vector2( 7.77848, 4.33086 )
 extents = Vector2( 11.3357, 10.9329 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 104.654
+radius = 132.399
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 11.8564
@@ -35,10 +35,12 @@ radius = 11.8564
 position = Vector2( 0, -16 )
 scale = Vector2( 0.8, 0.8 )
 collision_layer = 8
+collision_mask = 9
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -51,6 +53,7 @@ position = Vector2( -0.208569, 19.7131 )
 shape = SubResource( 2 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+visible = false
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -66,6 +69,7 @@ self_modulate = Color( 1, 1, 1, 0.282353 )
 shape = SubResource( 4 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 10 )]
+visible = false
 collision_layer = 4
 collision_mask = 0
 damage = 10

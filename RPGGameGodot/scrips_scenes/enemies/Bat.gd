@@ -25,6 +25,8 @@ func _ready():
 	stats.max_health = 3
 	stats.health     = 3
 	
+	stats.defense = 0
+	
 	stats.connect("no_health", self, "queue_free")
 
 func _physics_process(delta):
@@ -50,7 +52,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
+	stats.deal_damage(area.damage)
 	knockback = area.knockback_vector * FRICTION/2
 	
 func _seek_player():
