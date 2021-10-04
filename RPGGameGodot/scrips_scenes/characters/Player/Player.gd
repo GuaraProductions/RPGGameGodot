@@ -117,7 +117,6 @@ func player_actions():
 				curr_state = MOVE
 			
 func _on_InteractionZone_body_entered(body):
-	print("interage?")
 	interactable_body = body
 
 func _on_InteractionZone_body_exited(_body):

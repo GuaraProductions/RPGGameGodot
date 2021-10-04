@@ -1,23 +1,12 @@
 extends Control
 
-onready var player_bars = $"../PlayerStatsBars"
+signal exit_pause
 
 func _ready():
 	self.visible = false
-
-func _input(event):
-	
-	if event.is_action_released("pause"):
-		
-		get_tree().paused = not get_tree().paused
-		player_bars.visible = not get_tree().paused
-		
-		self.visible = get_tree().paused
 
 func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_Resume_pressed():
-	get_tree().paused = false
-	self.visible = false
-	player_bars.visible = true
+	emit_signal("exit_pause")

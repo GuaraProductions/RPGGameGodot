@@ -1,21 +1,24 @@
 extends Control
 
-onready var player_bars = $"../PlayerStatsBars"
-
-var playerStats = PlayerStats
+onready var animation   = $MenuAnimation
+onready var main_button = $"VBoxContainer/CenterContainer2/VBoxContainer/Main Menu"
+onready var quit_button = $"VBoxContainer/CenterContainer2/VBoxContainer/Quit"
 
 func _ready():
 	self.visible = false
-	playerStats.connect("no_health",self,"game_over")
+	main_button.disabled = true
+	quit_button.disabled = true
 	
-func game_over():
+func start():
 	self.visible = true
-	player_bars.visible = false
+	animation.play("GameOver")
 
+func on_game_over_animation_ended():
+	main_button.disabled = false
+	quit_button.disabled = false
 
 func _on_Main_Menu_pressed():
 	pass # Replace with function body.
-
 
 func _on_Quit_pressed():
 	get_tree().quit()

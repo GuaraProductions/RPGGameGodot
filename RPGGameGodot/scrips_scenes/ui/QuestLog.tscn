@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Fonts/UIfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scrips_scenes/ui/UIButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Fonts/MyDefaultFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scrips_scenes/ui/QuestLog.gd" type="Script" id=4]
+
+[node name="QuestLog" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.27875
+margin_right = 2.27881
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -642.0
+margin_top = -360.0
+margin_right = 638.0
+margin_bottom = 360.0
+color = Color( 0.188235, 0.172549, 0.207843, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestItems" type="ColorRect" parent="."]
+margin_left = 78.0
+margin_top = 85.0
+margin_right = 508.0
+margin_bottom = 685.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllQuests" type="ItemList" parent="QuestItems"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 25.0
+margin_right = -15.0
+margin_bottom = -25.0
+custom_fonts/font = ExtResource( 3 )
+items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestDescriptionBox" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 617.0
+margin_top = 85.0
+margin_right = -73.0
+margin_bottom = -225.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="QuestDescriptionBox"]
+margin_left = 133.194
+margin_top = 18.6771
+margin_right = 459.194
+margin_bottom = 69.6771
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Quest description"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DetailsBox" type="ColorRect" parent="QuestDescriptionBox"]
+margin_left = 25.0
+margin_top = 90.0
+margin_right = 565.0
+margin_bottom = 385.0
+color = Color( 0.105882, 0.101961, 0.121569, 0.529412 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestDetails" type="RichTextLabel" parent="QuestDescriptionBox/DetailsBox"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 520.0
+margin_bottom = 275.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestsSwitcher" parent="." instance=ExtResource( 2 )]
+margin_left = 480.362
+margin_top = 8.98984
+margin_right = 639.362
+margin_bottom = 58.9898
+text = "Active Quests"

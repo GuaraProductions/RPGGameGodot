@@ -17,6 +17,8 @@ onready var stats          = $Stats
 onready var playerDetector = $PlayerDetection
 onready var animations     = $AnimatedSprite
 
+var playerStats = PlayerStats
+
 var curr_state
 
 func _ready():
@@ -27,7 +29,7 @@ func _ready():
 	
 	stats.defense = 0
 	
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "bat_killed")
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -58,3 +60,7 @@ func _on_Hurtbox_area_entered(area):
 func _seek_player():
 	if playerDetector.can_see_player():
 		curr_state = CHASE
+		
+func bat_killed():
+	playerStats.experience += 25
+	self.queue_free()
