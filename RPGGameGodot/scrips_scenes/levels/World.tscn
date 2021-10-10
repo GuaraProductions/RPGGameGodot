@@ -52,6 +52,6 @@ position = Vector2( 482, -410 )
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 725.15, -254.741 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
+[node name="PlayerUI" parent="." instance=ExtResource( 5 )]
 
 [editable path="Camera2D"]

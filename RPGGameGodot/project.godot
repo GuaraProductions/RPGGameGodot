@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 PlayerStats="*res://scrips_scenes/characters/Player/PlayerStats.tscn"
+QuestManager="*res://scrips_scenes/utils/quest/QuestManager.gd"
 
 [display]
 

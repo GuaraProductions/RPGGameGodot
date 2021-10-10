@@ -13,19 +13,28 @@ func _ready():
 
 func _input(event):
 	
-	if event.is_action_released("pause"):
+	if event.is_action_released("pause") :
 		
-		pause_game()
-		
-		pauseMenu.visible = get_tree().paused
+		if questMenu.visible:
+			switch_visibility([pauseMenu,questMenu])
+		else:
+			switch_pause()
+			switch_visibility([pauseMenu])
 		
 	elif event.is_action_released("quest"):
 		
-		pause_game()
+		if pauseMenu.visible:
+			switch_visibility([pauseMenu,questMenu])
+		else:
+			switch_pause()
+			switch_visibility([questMenu])
 		
-		questMenu.visible = not questMenu.visible
+
+func switch_visibility(components):
+	for comp in components:
+		comp.visible = not comp.visible
 		
-func pause_game():
+func switch_pause():
 	get_tree().paused = not get_tree().paused
 	statsBars.visible = not get_tree().paused	
 
