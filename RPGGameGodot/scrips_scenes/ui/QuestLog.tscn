@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Fonts/UIfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scrips_scenes/ui/UIButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Fonts/MyDefaultFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scrips_scenes/ui/QuestLog.gd" type="Script" id=4]
+[ext_resource path="res://assets/Fonts/MyNameFont.tres" type="DynamicFont" id=5]
 
 [node name="QuestLog" type="Control"]
 pause_mode = 2
@@ -17,14 +18,11 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -642.0
-margin_top = -360.0
-margin_right = 638.0
-margin_bottom = 360.0
+anchor_left = -0.002
+anchor_right = -0.002
+margin_left = 0.56
+margin_right = 1280.56
+margin_bottom = 720.0
 color = Color( 0.188235, 0.172549, 0.207843, 0.498039 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,7 +46,17 @@ margin_top = 25.0
 margin_right = -15.0
 margin_bottom = -25.0
 custom_fonts/font = ExtResource( 3 )
-items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No quest" type="RichTextLabel" parent="QuestItems"]
+margin_left = 96.3367
+margin_top = 272.056
+margin_right = 356.337
+margin_bottom = 301.056
+custom_fonts/normal_font = ExtResource( 5 )
+text = "No quests available..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,9 +104,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestsSwitcher" parent="." instance=ExtResource( 2 )]
-margin_left = 480.362
-margin_top = 8.98984
-margin_right = 639.362
-margin_bottom = 58.9898
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 1.41418
+margin_top = -1.41422
+margin_right = 1279.41
+margin_bottom = 64.5858
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestsSwitcher" parent="CenterContainer" instance=ExtResource( 2 )]
+margin_left = 504.0
+margin_top = 8.0
+margin_right = 773.0
+margin_bottom = 58.0
 text = "Active Quests"
+
+[connection signal="pressed" from="CenterContainer/QuestsSwitcher" to="." method="_on_QuestsSwitcher_pressed"]
